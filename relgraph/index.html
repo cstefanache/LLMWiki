@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>D3.js Application</title>
+    <!-- Link the D3.js library -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+    <script>
+        // Your D3.js code goes here
+        d3.select("body")
+            .append("svg")
+            .attr("width", 500)
+            .attr("height", 500)
+            .append("circle")
+            .attr("cx", 250)
+            .attr("cy", 250)
+            .attr("r", 50)
+            .attr("fill", "blue");
+    </script>
+</body>
+</html>

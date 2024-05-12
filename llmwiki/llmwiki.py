@@ -72,7 +72,7 @@ def get_filename_from_complex_topic(filename: str) -> str:
         .replace("<", "_")
         .replace(">", "_")
         .replace("|", "_")
-    )
+    )[:30]
 
 
 def go_into_list(llama, topic, depth, parent=None):
@@ -82,7 +82,12 @@ def go_into_list(llama, topic, depth, parent=None):
 
     # check if "yes" is present in the first 10 characters in response
     if depth == 0:
-        instruction = f"[INST] English text only. Generate a single page on the subject {topic} in markdown. [/INST]"
+        instruction = f"""
+[INST]
+<<SYS>>Generate english text only. Avoid generating long paragraphs and prefer sub-sections. Do not mention or generate links,sources or references.<</SYS>>
+Generate a single page on the subject {topic} in markdown format.
+[/INST]
+"""
         response = query_llm(llama, instruction, echo=False)
 
         # Save the list to a file
@@ -93,7 +98,7 @@ def go_into_list(llama, topic, depth, parent=None):
     else:
         instruction = f"""
 [INST]
-<<SYS>>Your task is to generate a numbered list of topics on the provided subject, first level only, no sub-lists. The list should contain a maximum of {max_items} items. English only.<<SYS>>
+<<SYS>>Your task is to generate a numbered list of topics on the provided subject, first level only, no sub-lists in english. The list should contain a maximum of {max_items} items.<<SYS>>
 Give me a numbered list of topics on the subject of "{topic}" that can be broken down into sub-sections.
 [/INST]
 """
@@ -131,7 +136,7 @@ def main():
 
     # Download the model from the Hugging Face Hub
     model_path = hf_hub_download(
-        repo_id=config["repository"], filename=config["model"], cache_dir="./models"
+        repo_id=config["repository"], filename=config["model"], cache_dir="../models"
     )
 
     # Load the model

@@ -1,0 +1,29 @@
+{
+    "zrepository": "MaziyarPanahi/Llama-3-8B-Instruct-64k-GGUF",
+    "zmodel": "Llama-3-8B-Instruct-64k.Q5_K_S.gguf",
+    "orepository": "TheBloke/Llama-2-13B-chat-GGUF",
+    "omodel": "llama-2-13b-chat.Q5_K_M.gguf",
+    "repository": "TheBloke/Mistral-7B-Instruct-v0.2-GGUF",
+    "model": "mistral-7b-instruct-v0.2.Q6_K.gguf",
+    "brepository": "microsoft/Phi-3-mini-4k-instruct-gguf",
+    "bmodel": "Phi-3-mini-4k-instruct-q4.gguf",
+    "zterms": [
+        "Artificial Intelligence",
+        "Neural Networks"
+    ],
+    "terms": [
+        "AI",
+        "Religion",
+        "Childhood",
+        "Parenthood",
+        "Education",
+        "Ethics",
+        "Politics",
+        "Evolution",
+        "Love",
+        "Medicine",
+        "Relationships",
+        "Happiness",
+        "Human Brain"
+    ]
+}
